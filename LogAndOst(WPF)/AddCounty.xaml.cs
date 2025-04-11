@@ -23,5 +23,16 @@ namespace LogAndOst_WPF_
         {
             InitializeComponent();
         }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(CountryBox.Text))
+            {
+                DB.LogAndOstEntities.GetContext().Countries.Add(new DB.Countries() { Name = CountryBox.Text });
+                DB.LogAndOstEntities.GetContext().SaveChanges();
+            }
+            else
+                MessageBox.Show("Воздух - не страна!");
+        }
     }
 }

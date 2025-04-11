@@ -30,6 +30,8 @@ namespace LogAndOst_WPF_
         {
             if (DataGrid.SelectedItem != null)
                 DB.LogAndOstEntities.GetContext().Countries.Remove(DataGrid.SelectedItem as Countries);
+            DB.LogAndOstEntities.GetContext().SaveChanges();
+            DataGrid.ItemsSource = DB.LogAndOstEntities.GetContext().Countries.ToList();
         }
     }
 }

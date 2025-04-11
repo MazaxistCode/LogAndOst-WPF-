@@ -37,12 +37,19 @@ namespace LogAndOst_WPF_
 
         private void AddCountry_Click(object sender, RoutedEventArgs e)
         {
-
+            AddCounty form = new AddCounty();
+            form.ShowDialog();
+            List<DB.Countries> countries = DB.LogAndOstEntities.GetContext().Countries.ToList();
+            List<string> countryNames = new List<string>();
+            foreach (var country in countries)
+                countryNames.Add(country.Name);
+            CountyBox.ItemsSource = countryNames;
         }
 
         private void EmployeesButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ждите меня на 3 закате рассвета\n\t - Гендельф");
+            Employees form = new Employees();
+            form.ShowDialog();
         }
 
         private void ClientsButton_Click(object sender, RoutedEventArgs e)
@@ -59,6 +66,11 @@ namespace LogAndOst_WPF_
         {
             DBCountry form = new DBCountry();
             form.ShowDialog();
+            List<DB.Countries> countries = DB.LogAndOstEntities.GetContext().Countries.ToList();
+            List<string> countryNames = new List<string>();
+            foreach (var country in countries)
+                countryNames.Add(country.Name);
+            CountyBox.ItemsSource = countryNames;
         }
 
         private void ServicesButton_Click(object sender, RoutedEventArgs e)

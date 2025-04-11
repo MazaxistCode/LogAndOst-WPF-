@@ -1,0 +1,31 @@
+﻿<Window x:Class="LogAndOst_WPF_.Employees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogAndOst_WPF_"
+        mc:Ignorable="d"
+        Title="Employees" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <TextBox x:Name="SearchBox"></TextBox>
+            <DataGrid x:Name="EmpList" Margin="10,10,10,50" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Country" Binding="{Binding Country}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <Button x:Name="DeleteButton" Click="DeleteButton_Click"></Button>
+            <Button x:Name="CreateButton" Click="CreateButton_Click"></Button>
+            <Button x:Name="EditButton" Click="EditButton_Click"></Button>
+            <Button x:Name="ExitButton" Click="ExitButton_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

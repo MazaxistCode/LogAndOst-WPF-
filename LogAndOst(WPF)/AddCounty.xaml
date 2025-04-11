@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="AddCounty" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Введите название страны" Margin="10" HorizontalAlignment="Center"></Label>
+            <TextBox x:Name="CountryBox" Height="30" Width="300"></TextBox>
+            <Button x:Name="AddButton" Content="Добавить страну" Height="30" Margin="10" Click="AddButton_Click"></Button>
+        </StackPanel>
     </Grid>
 </Window>
