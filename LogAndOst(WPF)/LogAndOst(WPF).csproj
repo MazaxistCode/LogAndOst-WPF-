@@ -62,72 +62,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Page Include="AddCounty.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="DBCountry.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Employees.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="AddCounty.xaml.cs">
-      <DependentUpon>AddCounty.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="DBCountry.xaml.cs">
-      <DependentUpon>DBCountry.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Countries.cs">
-      <DependentUpon>LogAndOst.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Genders.cs">
-      <DependentUpon>LogAndOst.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\LogAndOst.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LogAndOst.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\LogAndOst.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LogAndOst.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\LogAndOst.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>LogAndOst.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Roles.cs">
-      <DependentUpon>LogAndOst.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DB\Users.cs">
-      <DependentUpon>LogAndOst.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Employees.xaml.cs">
-      <DependentUpon>Employees.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -145,39 +79,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="DB\LogAndOst.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LogAndOst.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DB\LogAndOst.edmx.diagram">
-      <DependentUpon>LogAndOst.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Avatar\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DB\LogAndOst.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogAndOst.edmx</DependentUpon>
-      <LastGenOutput>LogAndOst.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DB\LogAndOst.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>LogAndOst.edmx</DependentUpon>
-      <LastGenOutput>LogAndOst.cs</LastGenOutput>
-    </Content>
+    <Content Include="DBLogAndOst.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
