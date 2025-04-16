@@ -20,6 +20,8 @@ CREATE TABLE Countries (
 CREATE TABLE Users (
     Id INT PRIMARY KEY IDENTITY(1,1),
     Name NVARCHAR(255) NOT NULL,
+	Login VARCHAR(255) NOT NULL,
+	Password VARCHAR(255) NOT NULL,
     RoleId INT NOT NULL,
     CountryId INT NOT NULL,
     GenderId INT NOT NULL,
@@ -40,6 +42,6 @@ insert into Countries(Name) values('Россия');
 insert into Genders(Name) values('Мужчина');
 insert into Genders(Name) values('Женщина');
 
-insert into Users(Name,RoleId,CountryId,GenderId) values('Бобэк',1,1,1);
-insert into Users(Name,RoleId,CountryId,GenderId) values('Роберт',2,3,1);
-insert into Users(Name,RoleId,CountryId,GenderId) values('Ольга',3,2,2);
+insert into Users(Name,Login,Password,RoleId,CountryId,GenderId) values('Бобэк','Bobek','Bob123',1,1,1);
+insert into Users(Name,Login,Password,RoleId,CountryId,GenderId) values('Роберт','Robert','RobAdmin',2,3,1);
+insert into Users(Name,Login,Password,RoleId,CountryId,GenderId) values('Ольга','Olga','Olga132',3,2,2);
