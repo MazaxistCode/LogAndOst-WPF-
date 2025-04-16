@@ -32,7 +32,8 @@ namespace LogAndOst_WPF_
 
         private void CreateYZ_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ждите меня на 3 закате рассвета\n\t - Гендельф");
+            LogOn form = new LogOn();
+            form.ShowDialog();
         }
 
         private void AddCountry_Click(object sender, RoutedEventArgs e)

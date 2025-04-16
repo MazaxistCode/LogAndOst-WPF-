@@ -16,6 +16,8 @@ namespace LogAndOst_WPF_.DB
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
         public int RoleId { get; set; }
         public int CountryId { get; set; }
         public int GenderId { get; set; }

@@ -10,9 +10,11 @@
         <DataGrid x:Name="clientDataGrid" Margin="10" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Gender" Binding="{Binding Genders.Name}"/>
-                <DataGridTextColumn Header="Country" Binding="{Binding Countries.Name}"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"/>
+                <DataGridTextColumn Header="Пол" Binding="{Binding Genders.Name}"/>
+                <DataGridTextColumn Header="Страна" Binding="{Binding Countries.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

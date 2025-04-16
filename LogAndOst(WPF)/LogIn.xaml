@@ -8,8 +8,12 @@
         Title="LogIn" Height="450" Width="800">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label Content="Имя пользователя"></Label>
-            <TextBox x:Name="LoginBox"></TextBox>
+            <Label Content="Логин сотрудника" Margin="10,5,10,0" Width="250"></Label>
+            <TextBox x:Name="LoginBox" Margin="10,0,10,0"></TextBox>
+            <Label Content="Пароль сотрудника" Margin="10,5,10,0"></Label>
+            <TextBox x:Name="PassBox" Margin="10,0,10,0"></TextBox>
+            <Button x:Name="LogInButton" Click="LogInButton_Click" Margin="10,10,10,0" Height="20" Content="Войти"></Button>
+            <Button x:Name="LogOnButton" Click="LogOnButton_Click" Margin="10,10,10,0" Height="20" Content="Зарегистрироваться"></Button>
         </StackPanel>
     </Grid>
 </Window>

@@ -16,26 +16,32 @@
             <DataGrid x:Name="EmpList" Margin="10,10,10,50" Height="370" AutoGenerateColumns="False" SelectedCellsChanged="EmpList_SelectedCellsChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
-                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Gender" Binding="{Binding Genders.Name}"/>
-                    <DataGridTextColumn Header="Role" Binding="{Binding Roles.Name}"/>
-                    <DataGridTextColumn Header="Country" Binding="{Binding Countries.Name}"/>
+                    <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Логин" Binding="{Binding Login}"/>
+                    <DataGridTextColumn Header="Пароль" Binding="{Binding Password}"/>
+                    <DataGridTextColumn Header="Пол" Binding="{Binding Genders.Name}"/>
+                    <DataGridTextColumn Header="Роль" Binding="{Binding Roles.Name}"/>
+                    <DataGridTextColumn Header="Страна" Binding="{Binding Countries.Name}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Button x:Name="DeleteButton" Click="DeleteButton_Click" Height="30" Margin="10,10,10,0" Content="Удалить"></Button>
-            <Label Content="Имя сотрудника" Margin="10,10,10,0"></Label>
+            <Button x:Name="DeleteButton" Click="DeleteButton_Click" Height="20" Margin="10,10,10,0" Content="Удалить"></Button>
+            <Label Content="Имя сотрудника" Margin="10,4,10,0"></Label>
             <TextBox x:Name="NameBox" Margin="10,0,10,0"></TextBox>
-            <Label Content="Пол сотрудника" Margin="10,10,10,0"></Label>
+            <Label Content="Логин сотрудника" Margin="10,4,10,0"></Label>
+            <TextBox x:Name="LoginBox" Margin="10,0,10,0"></TextBox>
+            <Label Content="Пароль сотрудника" Margin="10,4,10,0"></Label>
+            <TextBox x:Name="PassBox" Margin="10,0,10,0"></TextBox>
+            <Label Content="Пол сотрудника" Margin="10,4,10,0"></Label>
             <ComboBox x:Name="GenderBox" Margin="10,0,10,0"></ComboBox>
-            <Label Content="Роль сотрудника" Margin="10,10,10,0"></Label>
+            <Label Content="Роль сотрудника" Margin="10,4,10,0"></Label>
             <ComboBox x:Name="RoleBox" Margin="10,0,10,0"></ComboBox>
-            <Label Content="Страна сотрудника" Margin="10,10,10,0"></Label>
+            <Label Content="Страна сотрудника" Margin="10,4,10,0"></Label>
             <ComboBox x:Name="CountryBox" Margin="10,0,10,0"></ComboBox>
-            <Button x:Name="CreateButton" Click="CreateButton_Click" Margin="10" Height="30" Content="Создать"></Button>
-            <Button x:Name="EditButton" Click="EditButton_Click" Margin="10" Height="30" Content="Редактировать"></Button>
-            <Button x:Name="ExitButton" Click="ExitButton_Click" Margin="10,10,10,10" Height="30" Content="Выход"></Button>
+            <Button x:Name="CreateButton" Click="CreateButton_Click" Margin="10,5,10,0" Height="20" Content="Создать"></Button>
+            <Button x:Name="EditButton" Click="EditButton_Click" Margin="10,5,10,0" Height="20" Content="Редактировать"></Button>
+            <Button x:Name="ExitButton" Click="ExitButton_Click" Margin="10,6,10,0" Height="20" Content="Выход"></Button>
         </StackPanel>
     </Grid>
 </Window>
