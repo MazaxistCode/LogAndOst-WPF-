@@ -54,7 +54,8 @@ namespace LogAndOst_WPF_
 
         private void ClientsButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ждите меня на 3 закате рассвета\n\t - Гендельф");
+            Clients form = new Clients();
+            form.ShowDialog();
         }
 
         private void RolesButton_Click(object sender, RoutedEventArgs e)
