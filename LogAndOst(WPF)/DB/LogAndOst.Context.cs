@@ -15,26 +15,25 @@ namespace LogAndOst_WPF_.DB
     
     public partial class LogAndOstEntities : DbContext
     {
-        private static LogAndOstEntities _context;
         public LogAndOstEntities()
             : base("name=LogAndOstEntities")
         {
         }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
+        private static LogAndOstEntities _context;
         public static LogAndOstEntities GetContext()
         {
             if (_context == null)
                 _context = new LogAndOstEntities();
             return _context;
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+    
         public virtual DbSet<Countries> Countries { get; set; }
         public virtual DbSet<Genders> Genders { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

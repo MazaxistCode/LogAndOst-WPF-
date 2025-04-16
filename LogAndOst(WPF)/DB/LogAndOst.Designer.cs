@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\lisav\source\repos\LogAndOst(WPF)\LogAndOst(WPF)\DB\LogAndOst.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\Admin\source\repos\MazaxistCode\LogAndOst-WPF-\LogAndOst(WPF)\DB\LogAndOst.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

@@ -4,15 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b2fdec2dbe2c40039859608bb80181df" Name="Diagram1">
+      <Diagram DiagramId="e1af9c9156df483bb74d6dbaeb6aac3a" Name="Diagram1">
         <EntityTypeShape EntityType="LogAndOstModel.Countries" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="LogAndOstModel.Genders" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
         <EntityTypeShape EntityType="LogAndOstModel.Roles" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogAndOstModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="LogAndOstModel.Users" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <AssociationConnector Association="LogAndOstModel.FK__Users__CountryId__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="LogAndOstModel.FK__Users__GenderId__778AC167" ManuallyRouted="false" />
-        <AssociationConnector Association="LogAndOstModel.FK__Users__RoleId__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="LogAndOstModel.FK_Users_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="LogAndOstModel.FK_Users_Genders" ManuallyRouted="false" />
+        <AssociationConnector Association="LogAndOstModel.FK_Users_Roles" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

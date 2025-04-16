@@ -22,34 +22,78 @@ namespace LogAndOst_WPF_
         public Employees()
         {
             InitializeComponent();
-            List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3).ToList();
-            EmpList.ItemsSource = users;
-            List<DB.Genders> genders = DB.LogAndOstEntities.GetContext().Genders.ToList();
-            EmpList.ItemsSource = genders;
-            List<DB.Roles> roles = DB.LogAndOstEntities.GetContext().Roles.Where(role => role.Name != "клиент").ToList();
-            EmpList.ItemsSource = genders;
+            try
+            {
+                List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3).ToList();
+                EmpList.ItemsSource = users;
+                List<DB.Genders> genders = DB.LogAndOstEntities.GetContext().Genders.ToList();
+                foreach (var pole in genders)
+                    GenderBox.Items.Add(pole.Name);
+                List<DB.Roles> roles = DB.LogAndOstEntities.GetContext().Roles.ToList();
+                foreach (var pole in roles)
+                    RoleBox.Items.Add(pole.Name);
+                List<DB.Countries> countries = DB.LogAndOstEntities.GetContext().Countries.ToList();
+                foreach (var pole in countries)
+                    CountryBox.Items.Add(pole.Name);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            if (EmpList.SelectedItem != null)
-                DB.LogAndOstEntities.GetContext().Users.Remove(EmpList.SelectedItem as DB.Users);
-            DB.LogAndOstEntities.GetContext().SaveChanges();
-            List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3).ToList();
-            EmpList.ItemsSource = users;
+            try
+            {
+                if (EmpList.SelectedItem != null)
+                    DB.LogAndOstEntities.GetContext().Users.Remove(EmpList.SelectedItem as DB.Users);
+                DB.LogAndOstEntities.GetContext().SaveChanges();
+                List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3).ToList();
+                EmpList.ItemsSource = users;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            if(!(string.IsNullOrEmpty(NameBox.Text) && string.IsNullOrEmpty(GenderBox.Text) && string.IsNullOrEmpty(RoleBox.Text) && string.IsNullOrEmpty(CountryBox.Text)))
+            try
             {
-                DB.LogAndOstEntities.GetContext().Users.Add(new DB.Users() {  });
+                if (!(string.IsNullOrEmpty(NameBox.Text) || string.IsNullOrEmpty(GenderBox.Text) || string.IsNullOrEmpty(RoleBox.Text) || string.IsNullOrEmpty(CountryBox.Text)))
+                {
+                    var userGender = DB.LogAndOstEntities.GetContext().Genders.First(gender => gender.Name == GenderBox.Text);
+                    var userRole = DB.LogAndOstEntities.GetContext().Roles.First(role => role.Name == RoleBox.Text);
+                    var userCountry = DB.LogAndOstEntities.GetContext().Countries.First(country => country.Name == CountryBox.Text);
+                    DB.LogAndOstEntities.GetContext().Users.Add(new DB.Users() { Name = NameBox.Text, Countries = userCountry, Genders = userGender, Roles = userRole});
+                    DB.LogAndOstEntities.GetContext().SaveChanges();
+                    List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3).ToList();
+                    EmpList.ItemsSource = users;
+                }
+                else
+                    MessageBox.Show("Заполните все поля.");
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                if (EmpList.SelectedItem != null && !(string.IsNullOrEmpty(NameBox.Text) || string.IsNullOrEmpty(GenderBox.Text) || string.IsNullOrEmpty(RoleBox.Text) || string.IsNullOrEmpty(CountryBox.Text)))
+                {
+                    var selectUser = EmpList.SelectedItem as DB.Users;
+                    var editUser = DB.LogAndOstEntities.GetContext().Users.First(user => user.Id == selectUser.Id);
+                    var userGender = DB.LogAndOstEntities.GetContext().Genders.First(gender => gender.Name == GenderBox.Text);
+                    var userRole = DB.LogAndOstEntities.GetContext().Roles.First(role => role.Name == RoleBox.Text);
+                    var userCountry = DB.LogAndOstEntities.GetContext().Countries.First(country => country.Name == CountryBox.Text);
+                    editUser.Roles = userRole;
+                    editUser.Countries = userCountry;
+                    editUser.Genders = userGender;
+                    DB.LogAndOstEntities.GetContext().SaveChanges();
+                    List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3).ToList();
+                    EmpList.ItemsSource = users;
+                }
+                else
+                    MessageBox.Show("Заполните все поля и выберите изменяемого пользователя.");
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -59,18 +103,26 @@ namespace LogAndOst_WPF_
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            DB.LogAndOstEntities.GetContext().SaveChanges();
-            List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3 && user.Name.Contains(SearchBox.Text)).ToList();
-            EmpList.ItemsSource = users;
+            try
+            {
+                DB.LogAndOstEntities.GetContext().SaveChanges();
+                List<DB.Users> users = DB.LogAndOstEntities.GetContext().Users.Where(user => user.RoleId != 3 && user.Name.Contains(SearchBox.Text)).ToList();
+                EmpList.ItemsSource = users;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void EmpList_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
-            if (EmpList.SelectedItem != null)
+            try
             {
-                DB.Users user = EmpList.SelectedItem as DB.Users;
-                NameBox.Text = user.Name;
+                if (EmpList.SelectedItem != null)
+                {
+                    DB.Users user = EmpList.SelectedItem as DB.Users;
+                    NameBox.Text = user.Name;
+                }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }

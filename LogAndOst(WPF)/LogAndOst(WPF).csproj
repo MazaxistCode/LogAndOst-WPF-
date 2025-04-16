@@ -116,9 +116,6 @@
     <Compile Include="DB\Roles.cs">
       <DependentUpon>LogAndOst.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\sysdiagrams.cs">
-      <DependentUpon>LogAndOst.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\Users.cs">
       <DependentUpon>LogAndOst.tt</DependentUpon>
     </Compile>
@@ -165,22 +162,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Avatar\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DB\LogAndOst.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LogAndOst.Context.cs</LastGenOutput>
       <DependentUpon>LogAndOst.edmx</DependentUpon>
+      <LastGenOutput>LogAndOst.Context.cs</LastGenOutput>
     </Content>
     <Content Include="DB\LogAndOst.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>LogAndOst.edmx</DependentUpon>
       <LastGenOutput>LogAndOst.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Avatar\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

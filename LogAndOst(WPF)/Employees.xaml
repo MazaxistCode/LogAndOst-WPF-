@@ -17,21 +17,25 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
                     <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
-                    <DataGridTextColumn Header="Gender" Binding="{Binding GenderId}"/>
-                    <DataGridTextColumn Header="Role" Binding="{Binding RoleId}"/>
-                    <DataGridTextColumn Header="Country" Binding="{Binding CountryId}"/>
+                    <DataGridTextColumn Header="Gender" Binding="{Binding Genders.Name}"/>
+                    <DataGridTextColumn Header="Role" Binding="{Binding Roles.Name}"/>
+                    <DataGridTextColumn Header="Country" Binding="{Binding Countries.Name}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>
         <StackPanel Grid.Column="1">
-            <Button x:Name="DeleteButton" Click="DeleteButton_Click" Height="30" Margin="10,10,10,30" Content="Удалить"></Button>
-            <TextBox x:Name="NameBox" Margin="10"></TextBox>
-            <ComboBox x:Name="GenderBox" Margin="10"></ComboBox>
-            <ComboBox x:Name="RoleBox" Margin="10"></ComboBox>
-            <ComboBox x:Name="CountryBox" Margin="10"></ComboBox>
+            <Button x:Name="DeleteButton" Click="DeleteButton_Click" Height="30" Margin="10,10,10,0" Content="Удалить"></Button>
+            <Label Content="Имя сотрудника" Margin="10,10,10,0"></Label>
+            <TextBox x:Name="NameBox" Margin="10,0,10,0"></TextBox>
+            <Label Content="Пол сотрудника" Margin="10,10,10,0"></Label>
+            <ComboBox x:Name="GenderBox" Margin="10,0,10,0"></ComboBox>
+            <Label Content="Роль сотрудника" Margin="10,10,10,0"></Label>
+            <ComboBox x:Name="RoleBox" Margin="10,0,10,0"></ComboBox>
+            <Label Content="Страна сотрудника" Margin="10,10,10,0"></Label>
+            <ComboBox x:Name="CountryBox" Margin="10,0,10,0"></ComboBox>
             <Button x:Name="CreateButton" Click="CreateButton_Click" Margin="10" Height="30" Content="Создать"></Button>
             <Button x:Name="EditButton" Click="EditButton_Click" Margin="10" Height="30" Content="Редактировать"></Button>
-            <Button x:Name="ExitButton" Click="ExitButton_Click" Margin="10,40,10,10" Height="30" Content="Выход"></Button>
+            <Button x:Name="ExitButton" Click="ExitButton_Click" Margin="10,10,10,10" Height="30" Content="Выход"></Button>
         </StackPanel>
     </Grid>
 </Window>
